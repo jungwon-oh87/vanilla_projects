@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+:root {
+  --modal-duration: 1s;
+  --primary-color: #30336b;
+  --secondary-color: #be2edd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+}
+
+nav {
+  background-color: var(--primary-color);
+  position: fixed;
+  height: 100vh;
+  width: 200px;
+  border-right: 2px solid rgba(200, 200, 200, 0.1);
+  transform: translateX(-100%);
+}
+
+nav .profile {
+  padding: 30px 0;
+  text-align: center;
+}
+
+nav .profile img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+nav ul {
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+nav ul li {
+  border-bottom: 2px solid rgba(200, 200, 200, 0.1);
+  padding: 20px;
+}
+
+nav ul li:first-of-type {
+  border-top: 2px solid rgba(200, 200, 200, 0.1);
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px 20px;
+  text-align: center;
+  position: relative;
+}
+
+button,
+input[type="submit"] {
+  background-color: var(--secondary-color);
+  padding: 10px 15px;
+  border-radius: 10%;
+  border: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+.burger_btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+}

@@ -46,8 +46,7 @@ function doubleMoney() {
   // using Map, double money of each person in data
   data = data.map(person => {
     return {
-      first_name: person.first_name,
-      last_name: person.last_name,
+      ...person,
       money: person.money * 2
     };
   });
