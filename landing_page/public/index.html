@@ -22,22 +22,22 @@
     </nav>
     <!-- header  -->
     <header>
-      <button class="burger_btn" id="burger_btn">
-        <i class="fas fa-bars fa-2x"></i>
-      </button>
       <div>
         <h1>My Landing Page</h1>
         <h3>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum, quae.
         </h3>
-        <button>
+        <button class="sign_up_btn" id="sign_up_btn">
           Sign Up
         </button>
       </div>
+      <button class="burger_btn" id="burger_btn">
+        <i class="fas fa-bars fa-2x"></i>
+      </button>
     </header>
 
     <!-- main contents  -->
-    <div>
+    <div class="main_contents">
       <h2>What is this landing page about?</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia iure
@@ -74,26 +74,48 @@
       </p>
     </div>
     <!-- modal -->
-    <div>
-      <div>
-        <h3>Sign Up</h3>
-        <button>
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div>
-        <p>Register with us to get offers, support and more</p>
-        <form>
-          <label>Name</label>
-          <input type="text" placeholder="" id="name_btn" /><br />
-          <label>Email</label>
-          <input type="text" placeholder="" id="email_btn" /><br />
-          <label>Password</label>
-          <input type="text" placeholder="" id="password_btn" /><br />
-          <label>Confirm Password</label>
-          <input type="text" placeholder="" id="password_confirm_btn" /><br />
-          <button>Submit</button>
-        </form>
+    <div class="modal_container" id="modal_container">
+      <div class="modal" id="modal">
+        <div class="modal_header">
+          <h3>Sign Up</h3>
+          <button class="modal_exit_btn" id="modal_exit_btn">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal_content">
+          <p>Register with us to get offers, support and more</p>
+          <form>
+            <label>Name</label>
+            <input
+              type="text"
+              placeholder="Your Full Name"
+              class="form_input"
+              id="name_btn"
+            /><br />
+            <label>Email</label>
+            <input
+              type="text"
+              placeholder="Your Email Address"
+              class="form_input"
+              id="email_btn"
+            /><br />
+            <label>Password</label>
+            <input
+              type="text"
+              placeholder="Password"
+              class="form_input"
+              id="password_btn"
+            /><br />
+            <label>Confirm Password</label>
+            <input
+              type="text"
+              placeholder="Password Confirmation"
+              class="form_input"
+              id="password_confirm_btn"
+            /><br />
+            <button>Submit</button>
+          </form>
+        </div>
       </div>
     </div>
     <script src="./script.js"></script>

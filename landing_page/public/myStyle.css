@@ -13,6 +13,12 @@
 body {
   font-family: "Lato", sans-serif;
   margin: 0;
+  height: 200vh;
+  transition: transform 0.3s ease;
+}
+
+body.nav-display {
+  transform: translateX(200px);
 }
 
 nav {
@@ -30,7 +36,7 @@ nav .profile {
 }
 
 nav .profile img {
-  border-radius: 50%;
+  border-radius: 20%;
   width: 100px;
   height: 100px;
 }
@@ -62,6 +68,7 @@ nav ul li a:hover {
 header {
   background-color: var(--primary-color);
   color: white;
+  font-size: 130%;
   padding: 20px 20px;
   text-align: center;
   position: relative;
@@ -70,9 +77,11 @@ header {
 button,
 input[type="submit"] {
   background-color: var(--secondary-color);
-  padding: 10px 15px;
+  padding: 8px 8px;
   border-radius: 10%;
   border: none;
+  color: white;
+  cursor: pointer;
 }
 
 button:focus {
@@ -80,9 +89,86 @@ button:focus {
 }
 
 .burger_btn {
-  position: fixed;
+  position: absolute;
   top: 10px;
   left: 10px;
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+.sign_up_btn {
+  font-size: 20px;
+}
+
+.modal_container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+}
+
+.modal_container.modal_display {
+  display: block;
+}
+
+.modal {
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-name: modalopen;
+  animation-duration: 1s;
+}
+
+.modal_header {
+  position: relative;
+  background-color: var(--primary-color);
+  padding: 1px 20px;
   color: white;
+}
+
+.modal_header h3 {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5rem;
+}
+
+.modal_exit_btn {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0);
+  top: 2px;
+  right: 5px;
+  color: #fff;
+  font-size: 130%;
+  cursor: pointer;
+}
+
+.modal_content {
+  padding: 10px 20px;
+}
+
+.form_input {
+  display: block;
+  width: 100%;
+  padding: 10px 10px;
+  margin-top: 4px;
+}
+
+.form_input:focus {
+  outline: none;
+}
+
+.main_contents {
+  padding: 0 20px;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
