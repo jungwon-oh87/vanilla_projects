@@ -27,21 +27,21 @@
       </svg>
       <!-- Wrong letters display -->
       <div class="wrong_letters_container">
-        <div class="wrong_letters"></div>
+        <div class="wrong_letters" id="wrong_letters"></div>
       </div>
       <!-- Correct letters display -->
-      <div class="answer" id="answer"></div>
+      <div class="answer_display" id="answer_display"></div>
       <div class="hint" id="hint"></div>
     </div>
     <!-- Game result -->
-    <div class="popup_container">
+    <div class="popup_container" id="popup_container">
       <div class="popup">
-        <h3></h3>
+        <h3 id="final_message"></h3>
         <button class="play_btn" id="play_btn">Play Again</button>
       </div>
     </div>
     <!-- Notification -->
-    <div class="notification_container">
+    <div class="notification_container" id="notification_container">
       <p>You have already entered this letter.</p>
     </div>
     <script src="./script.js"></script>
