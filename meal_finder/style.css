@@ -58,6 +58,7 @@ input[type="text"] {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
+  border: 1px solid red;
 }
 
 .meal {
