@@ -4,6 +4,7 @@ const form = document.getElementById("form");
 // const search_word = search_el.value; // find out why it doesn't work
 const result_heading = document.getElementById("result_heading");
 const meals_el = document.getElementById("meals");
+const single_meal = document.getElementById("single_meal");
 
 function searchMeal(e) {
   e.preventDefault();
@@ -35,10 +36,38 @@ function searchMeal(e) {
 }
 
 // fetch meal by id
-function getMealById(meal) {
+function getMealById(meal_id) {
   const ingredients = [];
-
-  // const meal_id = meal[]
+  fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal_id}`)
+    .then(res => res.json())
+    .then(data => {
+      for (let i = 1; i <= 20; i++) {
+        if (data.meals[0][`strIngredient${i}`]) {
+          ingredients.push(
+            `${data.meals[0][`strIngredient${i}`]} - ${
+              data.meals[0][`strMeasure${i}`]
+            }`
+          );
+        } else {
+          break;
+        }
+      }
+      // console.log("ingredients: ", ingredients);
+      single_meal.innerHTML = `
+      <div class="single_meal">
+        <h3>${data.meals[0].strMeal}</h3>
+        <img src="${data.meals[0].strMealThumb}" />
+        <div class="main">
+          <h3>Category: ${data.meals[0].strCategory}</h3>
+          <h3>Origin: ${data.meals[0].strArea}</h3>
+          <p>Direction: ${data.meals[0].strInstructions}</p>
+          <h3>Ingredients</h3>
+          <ul>
+            ${ingredients.map(i => `<li>${i}</li>`).join("")}
+          </ul>
+        </div>
+      </div>`;
+    });
 }
 
 // Event listener
@@ -55,6 +84,6 @@ meals_el.addEventListener("click", e => {
   if (meal_info) {
     const meal_id = meal_info.getAttribute("meal-id");
     console.log(meal_id);
+    getMealById(meal_id);
   }
-  // getMealById(meal);
 });
