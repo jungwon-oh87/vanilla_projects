@@ -16,6 +16,8 @@ body {
   align-items: center;
   border: 1px solid yellowgreen;
   text-align: center;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .flex {
@@ -90,4 +92,81 @@ input[type="text"] {
 
 .meal:hover .meal_info {
   opacity: 1;
+}
+
+.single_meal {
+  margin: 30px auto;
+}
+
+.single_meal img {
+  width: 300px;
+  height: 300px;
+  border: 4px solid white;
+}
+
+.single_meal p {
+  font-size: 20px;
+  margin: 0;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+.single_meal ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.single_meal ul li {
+  border: 1px solid #ededed;
+  border-radius: 5px;
+  padding: 5px;
+  display: inline-block;
+  color: #2d2013;
+  background-color: #fff;
+  margin: 0 5px 5px 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.main_title {
+  border: 2px dashed yellowgreen;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: 100%;
+  }
+  input[type="text"] {
+    width: 350px;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: 100%;
+  }
+  input[type="text"] {
+    width: 350px;
+  }
+  .meals {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 100%;
+  }
+  input[type="text"] {
+    width: 350px;
+  }
+  .meals {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .meals .meal {
+    width: 300px;
+    height: 300px;
+  }
 }

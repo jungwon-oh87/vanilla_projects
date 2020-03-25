@@ -1,4 +1,5 @@
 const search_button = document.getElementById("search_button");
+const random_button = document.getElementById("random_button");
 const search_el = document.getElementById("search");
 const form = document.getElementById("form");
 // const search_word = search_el.value; // find out why it doesn't work
@@ -25,7 +26,7 @@ function searchMeal(e) {
             <div class="meal">
               <img src="${meal.strMealThumb}" alt="${meal.strMeal}"></img>
               <div class="meal_info" meal-id="${meal.idMeal}">
-                <h3>${meal.strMeal}</h3>
+                <h2>${meal.strMeal}</h2>
               </div>
           </div>`;
           })
@@ -55,11 +56,13 @@ function getMealById(meal_id) {
       // console.log("ingredients: ", ingredients);
       single_meal.innerHTML = `
       <div class="single_meal">
-        <h3>${data.meals[0].strMeal}</h3>
+        <h2>${data.meals[0].strMeal}</h2>
         <img src="${data.meals[0].strMealThumb}" />
         <div class="main">
+        <div class="main_title">
           <h3>Category: ${data.meals[0].strCategory}</h3>
           <h3>Origin: ${data.meals[0].strArea}</h3>
+        </div>
           <p>Direction: ${data.meals[0].strInstructions}</p>
           <h3>Ingredients</h3>
           <ul>
@@ -70,8 +73,21 @@ function getMealById(meal_id) {
     });
 }
 
+function getRandom() {
+  // clear meals and heading
+  search_el.value = "";
+  result_heading.innerHTML = "";
+  meals_el.innerHTML = "";
+  single_meal.innerHTML = "";
+  // fetch API
+  fetch("https://www.themealdb.com/api/json/v1/1/random.php")
+    .then(res => res.json())
+    .then(data => getMealById(data.meals[0].idMeal));
+}
+
 // Event listener
 form.addEventListener("submit", searchMeal);
+random_button.addEventListener("click", getRandom);
 
 meals_el.addEventListener("click", e => {
   const meal_info = e.path.find(item => {
