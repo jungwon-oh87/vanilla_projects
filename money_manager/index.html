@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Money Manager</title>
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h2>Money Manager</h2>
+    <div class="container">
+      <h4>Your Balance</h4>
+      <h1>$-400.00</h1>
+      <div class="inc-exp-container">
+        <div class="income-container">
+          <h4>Income</h4>
+          <p class="money plus" id="money-plus">$0.00</p>
+        </div>
+        <div class="expense-container">
+          <h4>Expense</h4>
+          <p class="money minus" id="money-minus">$0.00</p>
+        </div>
+      </div>
+
+      <div class="history">
+        <h3 class="border-bottom">History</h3>
+        <ul class="list" id="list">
+          <li>laptop <span>$400</span><button class="delete-btn">X</button></li>
+          <li>water <span>$10</span><button class="delete-btn">X</button></li>
+        </ul>
+      </div>
+
+      <div class="add-transaction">
+        <h3 class="border-bottom">Add new trasaction</h3>
+        <form>
+          <div class="form-control">
+            <label>Text</label>
+            <input placeholder="Enter text..." type="text" />
+          </div>
+          <div class="form-control">
+            <label>Amount<br />(negative-expense, positive-income) </label>
+            <input placeholder="Enter amount..." type="number" />
+          </div>
+          <button class="add-transaction-button">Add transaction</button>
+        </form>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
