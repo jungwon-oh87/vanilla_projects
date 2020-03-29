@@ -10,7 +10,7 @@
     <h2>Money Manager</h2>
     <div class="container">
       <h4>Your Balance</h4>
-      <h1>$-400.00</h1>
+      <h1 id="balance">$0.00</h1>
       <div class="inc-exp-container">
         <div class="income-container">
           <h4>Income</h4>
@@ -25,8 +25,9 @@
       <div class="history">
         <h3 class="border-bottom">History</h3>
         <ul class="list" id="list">
-          <li>laptop <span>$400</span><button class="delete-btn">X</button></li>
-          <li>water <span>$10</span><button class="delete-btn">X</button></li>
+          <!-- <li class="minus">
+            laptop <span>-$400</span><button class="delete-btn">X</button>
+          </li> -->
         </ul>
       </div>
 
@@ -35,11 +36,15 @@
         <form>
           <div class="form-control">
             <label>Text</label>
-            <input placeholder="Enter text..." type="text" />
+            <input id="text-input" placeholder="Enter text..." type="text" />
           </div>
           <div class="form-control">
             <label>Amount<br />(negative-expense, positive-income) </label>
-            <input placeholder="Enter amount..." type="number" />
+            <input
+              id="number-input"
+              placeholder="Enter amount..."
+              type="number"
+            />
           </div>
           <button class="add-transaction-button">Add transaction</button>
         </form>
