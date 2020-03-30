@@ -5,17 +5,13 @@ const list = document.getElementById("list");
 const text_input = document.getElementById("text-input");
 const number_input = document.getElementById("number-input");
 const form = document.getElementById("form");
-// const delete_btn = document.getElementById("delete-btn"); DOESN'T WORK
 
-const dummyTransactions = [
-  { id: 1, name: "donation", amount: -30 },
-  { id: 2, name: "weekly income", amount: 1525 },
-  { id: 3, name: "grocery", amount: -145 },
-  { id: 4, name: "part-time income", amount: 250 },
-  { id: 5, name: "gloves", amount: -100 }
-];
+const localStorageTransactions = JSON.parse(
+  localStorage.getItem("transactions")
+);
 
-let transactions = dummyTransactions;
+let transactions =
+  localStorage.getItem("transactions") !== null ? localStorageTransactions : [];
 
 function addTransactionsDOM(transaction) {
   console.log("addtransactionDOM called");
@@ -56,6 +52,7 @@ function createTransaction(e) {
 
     addTransactionsDOM(new_transaction);
     updateBalance();
+    updateLocalStorage();
 
     // Reset input fields
     text_input.value = "";
@@ -71,13 +68,14 @@ function deleteTransaction(transaction_id) {
       transactions.splice(index, 1);
     }
   });
+  updateLocalStorage();
   init();
   console.log(transactions);
 }
 
 function updateBalance() {
   const all_values = transactions.map(t => t.amount);
-  const total = all_values.reduce((acc, item) => (acc += item)).toFixed(2);
+  const total = all_values.reduce((acc, item) => (acc += item), 0).toFixed(2);
   const income_values = all_values.filter(value => value > 0);
   const expense_values = all_values.filter(value => value < 0);
 
@@ -86,13 +84,20 @@ function updateBalance() {
 
   // Display Income
   money_plus.innerText = `$${income_values.reduce(
-    (acc, item) => (acc += item)
+    (acc, item) => (acc += item),
+    0
   )}`;
 
   // Display Expense
   money_minus.innerText = `$${expense_values.reduce(
-    (acc, item) => (acc += item)
+    (acc, item) => (acc += item),
+    0
   ) * -1}`;
+}
+
+function updateLocalStorage() {
+  console.log("update local storage called");
+  localStorage.setItem("transactions", JSON.stringify(transactions));
 }
 
 function init() {
