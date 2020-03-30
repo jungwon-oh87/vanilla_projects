@@ -4,10 +4,12 @@ const money_minus = document.getElementById("money-minus");
 const list = document.getElementById("list");
 const text_input = document.getElementById("text-input");
 const number_input = document.getElementById("number-input");
+const form = document.getElementById("form");
+// const delete_btn = document.getElementById("delete-btn"); DOESN'T WORK
 
 const dummyTransactions = [
   { id: 1, name: "donation", amount: -30 },
-  { id: 2, name: "weekly income", amount: 1500 },
+  { id: 2, name: "weekly income", amount: 1525 },
   { id: 3, name: "grocery", amount: -145 },
   { id: 4, name: "part-time income", amount: 250 },
   { id: 5, name: "gloves", amount: -100 }
@@ -29,10 +31,48 @@ function addTransactionsDOM(transaction) {
   // add others to list element
   list_item.innerHTML = `${transaction.name} <span>${sign}${Math.abs(
     transaction.amount
-  )}</span><button class="delete-btn">x</button>`;
+  )}</span><button class="delete-btn" id="delete-btn" onclick="deleteTransaction(${
+    transaction.id
+  })">x</button>`;
 
   // add list to ul
   list.appendChild(list_item);
+}
+
+function createTransaction(e) {
+  e.preventDefault();
+
+  if (text_input.value.trim() === "" || number_input.value.trim() === "") {
+    alert("inputs required");
+  } else {
+    // create a new transaction
+    const new_transaction = {
+      id: Math.floor(Math.random() * 1000000),
+      name: text_input.value,
+      amount: +number_input.value
+    };
+
+    transactions.push(new_transaction);
+
+    addTransactionsDOM(new_transaction);
+    updateBalance();
+
+    // Reset input fields
+    text_input.value = "";
+    number_input.value = "";
+  }
+}
+
+function deleteTransaction(transaction_id) {
+  console.log("delete called..");
+  // transactions.forEach(t => console.log(t.id));
+  transactions.forEach((t, index) => {
+    if (t.id === transaction_id) {
+      transactions.splice(index, 1);
+    }
+  });
+  init();
+  console.log(transactions);
 }
 
 function updateBalance() {
@@ -63,3 +103,6 @@ function init() {
 }
 
 init();
+
+form.addEventListener("submit", createTransaction);
+// delete_btn.addEventListener("click", () => console.log("delete called"));

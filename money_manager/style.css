@@ -149,7 +149,6 @@ input[type="number"]:focus {
 
 .add-transaction-button:focus {
   outline: none;
-  transform: scale(0.9);
 }
 
 .form-control {
