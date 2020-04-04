@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Music Player</title>
+  </head>
+  <body>
+    <h2>Music Player</h2>
+    <div class="container">
+      <div class="music-info">
+        <h4>Ukelele</h4>
+        <div class="progress-container">
+          <div class="progress-bar"></div>
+        </div>
+      </div>
+
+      <audio src="./assets/music/ukulele.mp3"></audio>
+
+      <div class="record-container">
+        <img src="./assets/images/ukulele.jpg" alt="record" />
+      </div>
+
+      <div class="control-container">
+        <button class="action-btn"><i class="fas fa-fast-backward"></i></button>
+        <button class="action-btn"><i class="fas fa-play"></i></button>
+        <button class="action-btn"><i class="fas fa-fast-forward"></i></button>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>
