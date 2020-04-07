@@ -19,9 +19,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0;
 }
 
 .container {
+  margin-top: 5rem;
   background-color: #fff;
   box-shadow: 0 20px 20px 0 rgba(252, 169, 169, 0.6);
   border-radius: 16px;
@@ -30,6 +32,11 @@ body {
   display: flex;
   text-align: center;
   position: relative;
+}
+
+.container.play .music-info {
+  opacity: 1;
+  transform: translateY(-100%);
 }
 
 .music-info {
@@ -43,9 +50,10 @@ body {
   padding: 10px 10px 10px 120px;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-  /* background-color: rgba(255, 255, 255, 0.7); */
-  background-color: lawngreen;
+  background-color: rgba(255, 255, 255, 0.7);
   opacity: 0;
+  transition: transform 1s ease-in, opacity 1s ease-in;
+  transform: translateY(0%);
 }
 
 .music-info h4 {
@@ -65,30 +73,69 @@ body {
   background-color: #e0c3fc;
 }
 
-.record-container {
+.img-container {
   position: relative;
   width: 110px;
-  border: 1px solid red;
 }
 
-.record-container img {
+.img-container::after {
+  content: "";
+  background-color: #fff;
+  border-radius: 50%;
   position: absolute;
-  left: 0;
-  bottom: 0;
-  /* object-fit: contain; */
+  bottom: 100%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border: 1px solid red;
+  transform: translate(0, 50%);
+}
+
+.img-container img {
+  border-radius: 50%;
+  object-fit: cover;
   height: 110px;
   width: inherit;
-  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: spin 2s linear infinite;
+  animation-play-state: paused;
+}
+
+.container.play .img-container img {
+  animation-play-state: running;
 }
 
 .control-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   padding: 10px;
   text-align: center;
-  border: 1px solid red;
+  width: 100%;
+  z-index: 11;
 }
 
 .control-container .action-btn {
-  margin-right: 20px;
+  border: none;
+  color: #dfdbdf;
+  font-size: 20px;
+  outline: none;
+}
+
+.control-container .action-btn.bigger {
+  font-size: 28px;
+}
+
+.control-container .action-btn:hover {
+  color: #b373f7;
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }

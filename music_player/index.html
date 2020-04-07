@@ -14,24 +14,30 @@
   </head>
   <body>
     <h2>Music Player</h2>
-    <div class="container">
+    <div class="container" id="container">
       <div class="music-info">
-        <h4>Ukelele</h4>
+        <h4 id="song_title">Ukelele</h4>
         <div class="progress-container">
           <div class="progress-bar"></div>
         </div>
       </div>
 
-      <audio src="./assets/music/ukulele.mp3"></audio>
+      <audio src="./assets/music/ukulele.mp3" id="audio"></audio>
 
-      <div class="record-container">
-        <img src="./assets/images/ukulele.jpg" alt="record" />
+      <div class="img-container">
+        <img src="./assets/images/ukulele.jpg" alt="record" id="img" />
       </div>
 
       <div class="control-container">
-        <button class="action-btn"><i class="fas fa-fast-backward"></i></button>
-        <button class="action-btn"><i class="fas fa-play"></i></button>
-        <button class="action-btn"><i class="fas fa-fast-forward"></i></button>
+        <button class="action-btn" id="prev">
+          <i class="fas fa-fast-backward"></i>
+        </button>
+        <button class="action-btn bigger" id="play">
+          <i class="fas fa-play"></i>
+        </button>
+        <button class="action-btn" id="next">
+          <i class="fas fa-fast-forward"></i>
+        </button>
       </div>
     </div>
   </body>
