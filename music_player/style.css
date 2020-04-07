@@ -65,11 +65,12 @@ body {
   width: 100%;
   background-color: #fff;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .music-info .progress-container .progress-bar {
   height: inherit;
-  width: 40%;
+  width: 0%;
   background-color: #e0c3fc;
 }
 
@@ -83,12 +84,11 @@ body {
   background-color: #fff;
   border-radius: 50%;
   position: absolute;
-  bottom: 100%;
+  bottom: 90%;
   left: 50%;
   width: 20px;
   height: 20px;
-  border: 1px solid red;
-  transform: translate(0, 50%);
+  transform: translate(15%, 45%);
 }
 
 .img-container img {
@@ -121,6 +121,7 @@ body {
   color: #dfdbdf;
   font-size: 20px;
   outline: none;
+  cursor: pointer;
 }
 
 .control-container .action-btn.bigger {
