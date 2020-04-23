@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Typing Game</title>
+  </head>
+  <body>
+    <!-- gear button -->
+    <button class="gear-btn" id="gear-btn">
+      <i class="fas fa-user-cog"></i>
+    </button>
+    <!-- difficulty select form -->
+    <div class="difficulty-container" id="difficulty-container">
+      <label>Difficulty</label>
+      <select id="difficulty">
+        <option value="easy">easy</option>
+        <option value="medium">medium</option>
+        <option value="difficult">difficult</option>
+      </select>
+    </div>
+    <!-- game container -->
+    <div class="game-container">
+      <div class="time-container">
+        <p>Time left: <span id="time">10s</span></p>
+      </div>
+      <div class="score-container">
+        <p>Score: <span id="score">0</span></p>
+      </div>
+      <div class="game-header">
+        <i class="far fa-keyboard"></i>Speed Typer<i class="fas fa-laptop"></i>
+      </div>
+      <div class="word-container">
+        <small>type the following: </small>
+        <h2 id="word"></h2>
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          placeholder="Type the word here"
+          class="input-field"
+          id="input-field"
+        />
+      </div>
+      <div class="game-over-container" id="game-over-container"></div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
