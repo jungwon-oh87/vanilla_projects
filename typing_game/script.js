@@ -4,11 +4,16 @@ const time_el = document.getElementById("time");
 const score_el = document.getElementById("score");
 const gear_btn = document.getElementById("gear-btn");
 const difficulty_container = document.getElementById("difficulty-container");
+const difficulty_select = document.getElementById("difficulty");
 const game_over_container = document.getElementById("game-over-container");
 
 let answer_word = "";
 let time = 10;
 let score = 0;
+let difficulty =
+  localStorage.getItem("difficulty") === null
+    ? "easy"
+    : localStorage.getItem("difficulty");
 
 const words = [
   "hello",
@@ -43,6 +48,12 @@ function updateTime() {
   time--;
   time_el.innerText = `${time}s`;
 
+  if (time <= 5) {
+    time_el.style.color = "red";
+  } else {
+    time_el.style.color = "white";
+  }
+
   if (time === 0) {
     clearInterval(timeInterval);
     gameover();
@@ -57,7 +68,13 @@ function handleInput(e) {
   const input = e.target.value;
   if (input === answer_word) {
     // increase time
-    time += 5;
+    if (difficulty === "easy") {
+      time += 10;
+    } else if (difficulty === "medium") {
+      time += 5;
+    } else {
+      time += 3;
+    }
 
     // increase score
     score++;
@@ -71,8 +88,16 @@ function handleInput(e) {
   }
 }
 
-input_field.focus();
+function handleDifficulty(e) {
+  difficulty = e.target.value;
+  localStorage.setItem("difficulty", difficulty);
+}
 
+input_field.focus();
+difficulty_select.value =
+  localStorage.getItem("difficulty") === null
+    ? "easy"
+    : localStorage.getItem("difficulty");
 // get the word
 generateWord();
 
@@ -86,3 +111,8 @@ input_field.addEventListener("input", handleInput);
 gear_btn.addEventListener("click", () => {
   difficulty_container.classList.toggle("hide");
 });
+
+// difficulty select listener
+difficulty_select.addEventListener("change", handleDifficulty);
+
+// localStorage.clear();
