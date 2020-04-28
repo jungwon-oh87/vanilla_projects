@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Text Reader</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Speech Text Reader</h2>
+      <button class="toggle-btn">Toggle Text Box</button>
+      <div class="outer-modal">
+        <div class="modal-container">
+          <div class="modal-header">
+            <h3>Select Voice Setting</h3>
+            <button class="exit" id="exit">X</button>
+          </div>
+          <div class="modal-content">
+            <select></select>
+            <textarea
+              placeholder="Enter text to read"
+              class="textarea"
+            ></textarea>
+            <button class="read-btn" id="read-btn">Read Text</button>
+          </div>
+        </div>
+      </div>
+      <main></main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
