@@ -23,15 +23,8 @@ button {
   color: #fff;
   padding: 10px;
   font-size: 16px;
-}
-
-.img-container {
-  width: 150px;
-  height: 150px;
-}
-
-.img-container img {
-  width: 100%;
+  cursor: pointer;
+  outline: none;
 }
 
 .container {
@@ -54,6 +47,10 @@ button {
   display: none;
 }
 
+.outer-modal.show {
+  display: flex;
+}
+
 .modal-container {
   position: absolute;
   left: 50%;
@@ -67,6 +64,7 @@ button {
 
 .modal-header {
   background-color: rgba(168, 101, 255, 1);
+  color: #fff;
   position: relative;
   height: 2.5rem;
   display: flex;
@@ -93,22 +91,62 @@ button {
 .modal-content {
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  justify-content: center;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid red;
 }
 
-.modal-content select,
-.modal-content .textarea {
+.modal-content .select {
+  padding: 16px;
   margin-bottom: 10px;
+}
+
+.modal-content .textarea {
+  width: 100%;
+  height: auto;
+  margin: 10px auto;
 }
 
 .main {
   border: 1px solid red;
+  margin-top: 16px;
   width: 80%;
+  height: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1em;
 }
 
-.main img {
+.main .card-container {
+  border: 1px solid blue;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-container p {
+  text-align: center;
+  background-color: rgba(92, 103, 247, 1);
+  margin: 0;
+  padding: 10px;
+}
+
+.card-container .img-container {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.img-container img {
   width: 100%;
   height: 100%;
+  transition: transform 0.5s ease-in;
+}
+
+img:hover {
+  transform: scale(1.2);
 }
