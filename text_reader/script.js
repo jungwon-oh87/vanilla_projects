@@ -3,6 +3,8 @@ const toggle_btn = document.getElementById("toggle-btn");
 const outer_modal = document.getElementById("outer-modal");
 const exit_btn = document.getElementById("exit");
 const select = document.getElementById("select");
+const textarea = document.getElementById("textarea");
+const read_btn = document.getElementById("read-btn");
 
 const data = [
   {
@@ -56,6 +58,8 @@ const data = [
 ];
 
 const synth = window.speechSynthesis;
+console.log("synth: ", synth.getVoices());
+
 const utter = new SpeechSynthesisUtterance();
 let voices = [];
 
@@ -135,4 +139,20 @@ outer_modal.addEventListener("click", (e) => {
   if (e.target === outer_modal) {
     toggleModal();
   }
+});
+
+// Read Button Listener
+read_btn.addEventListener("click", () => {
+  console.log("text: ", textarea.value);
+  setText(textarea.value);
+  speak();
+});
+
+// Select Option Listener
+select.addEventListener("change", (e) => {
+  console.log(e.target.value);
+  utter.voice = voices.find((v) => {
+    return v.name === e.target.value;
+  });
+  console.log("change event: ", utter.voice);
 });
