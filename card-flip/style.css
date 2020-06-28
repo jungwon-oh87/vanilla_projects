@@ -133,7 +133,6 @@ h1 button {
 .nav {
   display: flex;
   margin: 20px 0;
-  border: 1px solid blue;
 }
 
 .nav-btn {
