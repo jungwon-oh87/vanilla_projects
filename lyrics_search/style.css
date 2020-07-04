@@ -2,6 +2,47 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 header {
   background-image: url("https://images.unsplash.com/photo-1420161900862-9a86fa1f5c79?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+}
+
+form {
+  position: relative;
+  max-width: 100%;
+  width: 500px;
+}
+
+form > input {
+  width: 100%;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+
+form > button {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  background-color: #e056fd;
+  border: 0;
+  color: #fff;
+  padding: 13px 30px;
+  border-radius: 50px;
+  font-size: 16px;
 }
