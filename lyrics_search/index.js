@@ -21,6 +21,13 @@ searchSongs = async (input) => {
   displayData(data);
 };
 
+getMoreSongs = async (url) => {
+  const res = await fetch(`https://cors-anywhere.herokuapp.com/${url}`);
+  const data = await res.json();
+  console.log("next data: ", data);
+  displayData(data);
+};
+
 displayData = (data) => {
   resultEl.innerHTML = `
         <ul class="songs">
@@ -39,6 +46,20 @@ displayData = (data) => {
               .join("")}
         </ul>
     `;
+  if (data.next || data.prev) {
+    moreEl.innerHTML = `
+    ${
+      data.prev
+        ? `<button class='nav_button' onclick="getMoreSongs('${data.prev}')">Prev</button>`
+        : ""
+    }
+    ${
+      data.next
+        ? `<button class='nav_button' onclick="getMoreSongs('${data.next}')">Next</button>`
+        : ""
+    }
+    `;
+  }
 };
 
 formEl.addEventListener("submit", getInput);
