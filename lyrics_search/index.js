@@ -28,6 +28,12 @@ getMoreSongs = async (url) => {
   displayData(data);
 };
 
+getLyrics = async (artist, title) => {
+  const res = await fetch(`${apiUrl}/v1/${artist}/${title}`);
+  const lyrics = await res.json();
+  console.log(lyrics);
+};
+
 displayData = (data) => {
   resultEl.innerHTML = `
         <ul class="songs">
@@ -40,7 +46,7 @@ displayData = (data) => {
                         -
                         ${item.title}
                     </span>
-                     <button class="lyrics_button">Get Lyrics</button>
+                     <button class="lyrics_button" data_artist="${item.artist.name}" data_title="${item.title}">Get Lyrics</button>
                     </li>`
               )
               .join("")}
@@ -63,3 +69,12 @@ displayData = (data) => {
 };
 
 formEl.addEventListener("submit", getInput);
+resultEl.addEventListener("click", (e) => {
+  if (e.target.tagName === "BUTTON") {
+    const artist = e.target.getAttribute("data_artist");
+    const title = e.target.getAttribute("data_title");
+    console.log("artist: ", artist);
+    console.log("title: ", title);
+    getLyrics(artist, title);
+  }
+});
