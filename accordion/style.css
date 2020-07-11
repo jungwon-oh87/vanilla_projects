@@ -37,3 +37,11 @@
 .panel.activated {
   /* overflow: scroll; */
 }
+
+.accordion_button::after {
+  content: "↑";
+}
+
+.accordion_button.clicked::after {
+  content: "↓";
+}
