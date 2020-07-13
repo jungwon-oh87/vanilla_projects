@@ -10,32 +10,40 @@
     <div class="container">
       <div class="mySlides">
         <div class="number_display">1/4</div>
-        <img src="./images/img1.jpg" alt="img1" style="width: 100%;" />
+        <div class="image_container">
+          <img src="./images/img1.jpg" alt="img1" />
+        </div>
         <div class="title">Image One</div>
       </div>
       <div class="mySlides">
         <div class="number_display">2/4</div>
-        <img src="./images/img2.jpg" alt="img2" style="width: 100%;" />
+        <div class="image_container">
+          <img src="./images/img2.jpg" alt="img2" />
+        </div>
         <div class="title">Image Two</div>
       </div>
       <div class="mySlides">
         <div class="number_display">3/4</div>
-        <img src="./images/img3.jpg" alt="img3" style="width: 100%;" />
+        <div class="image_container">
+          <img src="./images/img3.jpg" alt="img3" />
+        </div>
         <div class="title">Image Three</div>
       </div>
       <div class="mySlides">
         <div class="number_display">4/4</div>
-        <img src="./images/img4.jpg" alt="img4" style="width: 100%;" />
+        <div class="image_container">
+          <img src="./images/img4.jpg" alt="img4" />
+        </div>
         <div class="title">Image Four</div>
       </div>
-      <a class="prev">&#10094;</a>
-      <a class="next">&#10095;</a>
+      <a class="prev" id="prev_nav">&#10094;</a>
+      <a class="next" id="next_nav">&#10095;</a>
     </div>
     <div class="dot_container">
+      <span class="dot" onclick="currentSlide(0)"></span>
       <span class="dot" onclick="currentSlide(1)"></span>
       <span class="dot" onclick="currentSlide(2)"></span>
       <span class="dot" onclick="currentSlide(3)"></span>
-      <span class="dot" onclick="currentSlide(4)"></span>
     </div>
     <script src="./index.js"></script>
   </body>

@@ -4,26 +4,47 @@
 
 body {
   margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 .container {
+  display: block;
   position: relative;
   max-width: 1000px;
-  margin: auto;
+  margin: 10px auto;
+  height: 100%;
+  width: 100%;
 }
 
 .mySlides {
-  /* display: none; */
+  width: 100%;
+  height: 500px;
+  position: relative;
 }
 
-.mySlides img {
-  height: 500px;
+.image_container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* overflow: hidden; */
 }
+
+.image_container img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: -600px;
+  animation: sliding 0.5s forwards;
+  z-index: 0;
+}
+
 .number_display {
   position: absolute;
   top: 5px;
   left: 5px;
   color: #fff;
   padding: 8px 12px;
+  z-index: 1;
 }
 
 .title {
@@ -37,30 +58,54 @@ body {
 .prev,
 .next {
   position: absolute;
-  top: 50%;
+  top: 250px;
   transform: translateY(-50%);
-  color: red;
+  color: #fff;
   cursor: pointer;
   font-size: 18px;
   font-weight: bold;
   width: auto;
-  padding: 16px;
+  padding: 24px 16px;
 }
 
 .next {
-  position: absolute;
-  right: 15px;
+  right: 0;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .dot_container {
+  display: block;
   text-align: center;
+  z-index: 1;
 }
 
 .dot {
   cursor: pointer;
   height: 15px;
   width: 15px;
-  background-color: #333;
+  background-color: #777;
   border-radius: 50%;
   display: inline-block;
+  z-index: 1;
+}
+
+.active,
+.dot:hover {
+  background-color: #313131;
+}
+
+@-webkit-keyframes sliding {
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes sliding {
+  100% {
+    left: 0;
+  }
 }
