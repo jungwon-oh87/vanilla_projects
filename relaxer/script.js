@@ -1,5 +1,8 @@
 const container = document.getElementsByClassName("container");
 const text = document.getElementsByClassName("text");
+const totalTime = 7500;
+const breathInTime = (totalTime / 5) * 2;
+const holdTime = totalTime / 5;
 
 function activate() {
     text[0].innerText = "Breathe in"
@@ -9,11 +12,10 @@ function activate() {
         setTimeout(() => {
             container[0].className = 'container shrink'
             text[0].innerText = "Breathe out"
-        }, 1500)
-    }, 3000)
+        }, holdTime)
+    }, breathInTime)
 }
 
-
 activate();
-setInterval(activate, 7500);
+setInterval(activate, totalTime);
 
